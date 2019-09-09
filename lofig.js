@@ -1,5 +1,3 @@
-import 'bluebird';
-import 'whatwg-fetch';
 
 window.lofig = {
 	folder: 'config/default.json',
@@ -8,12 +6,12 @@ window.lofig = {
 			.then(response => {
 				return response.json();
 			}).then(json => {
-				query = query.split('.');
-				return Promise.each(query, property => {
-					json = json[property];
-				}).then(() => {
-					return json;
-				});
+				query.split('.')
+					.forEach(property => {
+						json = json[property];
+					});
+
+				return json;
 			}).catch(err => {
 				console.log('parsing failed', err);
 			});

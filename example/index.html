@@ -7,13 +7,13 @@
 <body>
 	<h3>
 		Secret:
-		<span></span>
+		<span id="secret"></span>
 	</h3>
 	<script src="../dist/lofig.min.js"></script>
 	<script>
-		(async function () {
-			console.log(await(lofig.has('secret')));
-			console.log(await lofig.get('secret'));
+		(async () => {
+			document.getElementById("secret").textContent = await lofig.get('secret');
+			document.getElementById("secret").style.color = "tomato";
 		})();
 	</script>
 </body>

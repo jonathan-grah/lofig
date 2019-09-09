@@ -2,7 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './lofig.js',
+  entry: ['./lofig.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist',
@@ -13,17 +13,16 @@ module.exports = {
       modules: path.join(__dirname, 'node_modules')
     }
   },
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules'),
-  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'babel',
         exclude: /node_modules/,
-        query: {
-            presets: ['es2015']
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env']
+            }
         }
       }
     ]
@@ -32,13 +31,7 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true
   },
-  devtool: '#eval-source-map',
-  plugins: [
-    new webpack.ProvidePlugin({
-        'Promise': 'bluebird',
-        'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-    }),
-  ]
+  devtool: '#eval-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
