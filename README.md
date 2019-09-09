@@ -12,12 +12,26 @@ You can also use https://unpkg.com/lofig@latest/dist/lofig.min.js.
 
 ```js
 import 'lofig' from 'lofig'; // not necessary if using CDN Link
+
 // change config folder
 lofig.folder = 'config/default.json';
+
 // check if property exists
-lofig.has('secret', res => {});
+
+await lofig.has('secret');
+// OR
+lofig.has('secret').then(res => {
+	if (res) console.log("secret is defined!");
+})
+
 // return property
-lofig.get('secret', res => {});
+
+await lofig.get('secret');
+// OR
+lofig.get('secret').then(secret => {
+	if (secret) console.log("secret:", secret);
+})
+
 ```
 
-See [example](https://github.com/atjonathan/lofig/tree/master/example) folder for more details.
+See [example](https://github.com/jonathan-grah/lofig/tree/master/example) folder for more details.
