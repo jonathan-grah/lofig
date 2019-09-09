@@ -17,7 +17,7 @@
     "exports-loader": "^0.6.3",
     "imports-loader": "^0.7.0",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.12.1"
+    "webpack-dev-server": "^3.1.11"
   },
   "homepage": "https://github.com/jonathan-grah/lofig",
   "license": "MIT",
