@@ -36,5 +36,5 @@
     "build": "webpack --mode=production",
     "test": "snyk test"
   },
-  "version": "1.1.2"
+  "version": "1.1.3"
 }
