@@ -11,12 +11,10 @@
 	</h3>
 	<script src="../dist/lofig.min.js"></script>
 	<script>
-	console.log(lofig)
-		lofig.has('secret', isSecret => {
-			if (isSecret) lofig.get('secret', res => {
-				document.getElementsByTagName('span')[0].innerHTML = res;
-			});
-		});
+		(async function () {
+			console.log(await(lofig.has('secret')));
+			console.log(await lofig.get('secret'));
+		})();
 	</script>
 </body>
 </html>
