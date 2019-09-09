@@ -6,7 +6,7 @@
 
 `npm install lofig --save --production`
 
-You can also use https://cdn.rawgit.com/atjonathan/lofig/master/lofig.js.
+You can also use https://unpkg.com/lofig@latest/dist/lofig.min.js.
 
 ## Usage
 

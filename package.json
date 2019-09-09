@@ -6,7 +6,7 @@
   "dependencies": {
     "whatwg-fetch": "^2.0.1"
   },
-  "description": "Like the Config packge, but for client side JavaScript",
+  "description": "Like the Config package, but for client side JavaScript",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
