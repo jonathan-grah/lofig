@@ -22,7 +22,6 @@
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
   },
-  "homepage": "https://github.com/jonathan-grah/lofig",
   "license": "MIT",
   "main": "dist/lofig.min.js",
   "name": "lofig",
@@ -35,5 +34,5 @@
     "build": "webpack --mode=production",
     "test": "snyk test"
   },
-  "version": "1.2.0"
+  "version": "1.2.1"
 }

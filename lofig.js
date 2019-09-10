@@ -1,7 +1,6 @@
-
 window.lofig = {
 	folder: 'config/default.json',
-	get: query => {
+	get: (query, cb) => {
 		return fetch(lofig.folder)
 			.then(response => {
 				return response.json();
@@ -11,12 +10,13 @@ window.lofig = {
 						json = json[property];
 					});
 
-				return json;
+				if (cb) return cb(json);
+				else return json;
 			}).catch(err => {
 				console.log('parsing failed', err);
 			});
 	},
-	has: query => {
+	has: (query, cb) => {
 		return fetch(lofig.folder)
 			.then(response => {
 				return response.json();
@@ -26,6 +26,7 @@ window.lofig = {
 						json = json[property];
 					});
 
+				if (cb) return cb(json);
 				return json;
 			}).catch(err => {
 				console.log('parsing failed', err);
