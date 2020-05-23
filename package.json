@@ -20,7 +20,7 @@
     "snyk": "^1.226.1",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.3.8",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.11.0"
   },
   "license": "MIT",
   "main": "dist/lofig.min.js",
