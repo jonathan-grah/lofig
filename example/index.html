@@ -13,6 +13,8 @@
 	</h3>
 	<script src="../dist/lofig.min.js"></script>
 	<script>
+		lofig.folder = "./config/default.json";
+
 		(async () => {
 			document.getElementById("secret").textContent = await lofig.get('secret');
 			document.getElementById("secret").style.color = "tomato";
