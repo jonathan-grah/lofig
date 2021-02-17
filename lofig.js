@@ -1,5 +1,3 @@
-
-
 window.lofig = {
 	folder: '/config/default.json',
 	config: null,

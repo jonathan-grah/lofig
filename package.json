@@ -18,7 +18,6 @@
     "babel-preset-es2015": "^6.24.1",
     "exports-loader": "^0.7.0",
     "imports-loader": "^0.8.0",
-    "snyk": "^1.456.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^4.3.0",
     "webpack-dev-server": "^3.11.2"
@@ -32,8 +31,7 @@
   },
   "scripts": {
     "dev": "webpack serve --open --mode=development",
-    "build": "webpack --mode=production",
-    "test": "snyk test"
+    "build": "webpack --mode=production"
   },
-  "version": "1.2.3"
+  "version": "1.3.0"
 }
