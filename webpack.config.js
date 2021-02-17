@@ -1,8 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
+var TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  entry: ['babel-polyfill', './lofig.js'],
+  entry: ['./node_modules/regenerator-runtime/runtime.js', './lofig.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist',
@@ -21,7 +22,7 @@ module.exports = {
         use: {
             loader: 'babel-loader',
             options: {
-                presets: ['@babel/preset-env']
+              presets: ['@babel/preset-env']
             }
         }
       }
@@ -32,20 +33,20 @@ module.exports = {
     noInfo: true,
     contentBase: './example'
   },
-  devtool: '#eval-source-map'
+  devtool: 'source-map',
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+    usedExports: true,
+  },
 }
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = 'inline-source-map'
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin()
