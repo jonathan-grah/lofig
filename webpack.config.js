@@ -2,7 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: ['./lofig.js'],
+  entry: ['babel-polyfill', './lofig.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist',
@@ -29,7 +29,8 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+    contentBase: './example'
   },
   devtool: '#eval-source-map'
 }

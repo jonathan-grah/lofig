@@ -1,35 +1,42 @@
+
+
 window.lofig = {
 	folder: '/config/default.json',
-	get: (query, cb) => {
-		return fetch(lofig.folder)
-			.then(response => {
-				return response.json();
-			}).then(json => {
-				query.split('.')
-					.forEach(property => {
-						json = json[property];
-					});
+	config: null,
+	fetchConfig: async () => {
+		if (!lofig.config) {
+			const response = await fetch(lofig.folder);
 
-				if (cb) return cb(json);
-				else return json;
-			}).catch(err => {
-				console.log('parsing failed', err);
-			});
+			if (!response.ok) {
+				const message = `An error has occured: ${response.status}`;
+				throw new Error(message);
+			}
+
+			lofig.config = response.json();
+		}
+
+		return lofig.config;
 	},
-	has: (query, cb) => {
-		return fetch(lofig.folder)
-			.then(response => {
-				return response.json();
-			}).then(json => {
-				query.split('.')
-					.forEach(property => {
-						json = json[property];
-					});
+	get: async (query, cb) => {
+		let json = await lofig.fetchConfig();
 
-				if (cb) return cb(json);
-				return json;
-			}).catch(err => {
-				console.log('parsing failed', err);
+		query.split('.')
+			.forEach(property => {
+				json = json[property];
 			});
+
+		if (cb) return cb(json);
+		return json;
+	},
+	has: async (query, cb) => {
+		let json = await lofig.fetchConfig();
+
+		query.split('.')
+			.forEach(property => {
+				json = json[property];
+			});
+
+		if (cb) return cb(!!json);
+		return !!json;
 	}
 };
