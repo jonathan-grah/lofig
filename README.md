@@ -2,8 +2,6 @@
 
 > [npmjs.com/package/config](https://npmjs.com/package/config), but for client side JavaScript
 
-[![Known Vulnerabilities](https://snyk.io//test/github/jonathan-grah/lofig/badge.svg?targetFile=package.json)](https://snyk.io//test/github/jonathan-grah/lofig?targetFile=package.json)
-
 ## Installation
 
 `npm install lofig --save --production`
